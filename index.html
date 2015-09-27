@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Tom Sjoberg - P5 - Neighborhood Map</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script>
+		<script src="js/app.js"></script>
+		
+		<style>
+      		html, body, {
+        		height: 100%;
+        		margin: 0;
+        		padding: 0;
+      		}
+      		#map-canvas {
+      			width: 100%;
+      			padding-bottom: 80%;
+      		}
+    	</style>
+	</head>
+	<body>
+		<div class="container">
+		<h1>NYC Select Bus Service</h1>
+			<div class="row">
+				<div class="col-md-9">
+					<div id="map-canvas"></div>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" placeholder="Type to filter routes">
+					<ul data-bind="foreach: routes">
+						<li>
+							<span data-bind="text: name"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Synchronously load Google Maps Javascript API and load into map-canvas element -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC16fkPaFQRFMoy4QDO0vEeYNFDPkwYTvM"></script>
+		<script>
+			var map = new google.maps.Map(document.getElementById('map-canvas'), {
+			    center: {lat: 40.7670616, lng: -73.9583235},
+			    zoom: 10
+			});
+		</script>
+
+	</body>
+</html>
